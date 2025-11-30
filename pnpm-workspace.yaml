@@ -5,3 +5,6 @@ onlyBuiltDependencies:
   - msw
   - vuepress
   - vuepress-plugin-demo-container-v2.7
+
+patchedDependencies:
+  '@mswjs/interceptors@0.17.10': patches/@mswjs__interceptors@0.17.10.patch

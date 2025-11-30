@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  '@mswjs/interceptors@0.17.10':
+    hash: db96724d0bb27040ef82494b3e1d47c74916aa0deb94414e832c69c78d7b7a04
+    path: patches/@mswjs__interceptors@0.17.10.patch
+
 importers:
 
   .:
@@ -25,8 +30,8 @@ importers:
         specifier: ^14.1.1
         version: 14.1.1(debug@4.3.3)
       msw:
-        specifier: 0.49.2
-        version: 0.49.2(@types/node@24.10.1)
+        specifier: 0.49.3
+        version: 0.49.3(@types/node@24.10.1)
       vuepress:
         specifier: ^1.9.10
         version: 1.9.10(@vue/compiler-sfc@3.5.25)(debug@4.3.3)(hogan.js@3.0.2)(lodash@4.17.21)
@@ -3459,8 +3464,8 @@ packages:
   ms@2.1.3:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
 
-  msw@0.49.2:
-    resolution: {integrity: sha512-70/E10f+POE2UmMw16v8PnKatpZplpkUwVRLBqiIdimpgaC3le7y2yOq9JmOrL15jpwWM5wAcPTOj0f550LI3g==}
+  msw@0.49.3:
+    resolution: {integrity: sha512-kRCbDNbNnRq5LC1H/NUceZlrPAvSrMH6Or0mirIuH69NY84xwDruPn/hkXTovIK1KwDwbk+ZdoSyJlpiekLxEA==}
     engines: {node: '>=14'}
     hasBin: true
     peerDependencies:
@@ -4515,8 +4520,11 @@ packages:
   stream-shift@1.0.3:
     resolution: {integrity: sha512-76ORR0DO1o1hlKwTbi/DM3EXWGf3ZJYO8cXX5RJwnul2DEg2oyoZyjLNoQM8WsvZiFKCRfC1O0J7iCvie3RZmQ==}
 
-  strict-event-emitter@0.2.8:
-    resolution: {integrity: sha512-KDf/ujU8Zud3YaLtMCcTI4xkZlZVIYxTLr+XIULexP+77EEVWixeXroLUXQXiVtH4XH2W7jr/3PT1v3zBuvc3A==}
+  strict-event-emitter@0.2.4:
+    resolution: {integrity: sha512-xIqTLS5azUH1djSUsLH9DbP6UnM/nI18vu8d43JigCQEoVsnY+mrlE+qv6kYqs6/1OkMnMIiL6ffedQSZStuoQ==}
+
+  strict-event-emitter@0.4.6:
+    resolution: {integrity: sha512-12KWeb+wixJohmnwNFerbyiBrAlq5qJLwIt38etRtKtmmHyDSoGlIqFE9wx+4IwG0aDjI7GV8tc8ZccjWZZtTg==}
 
   strict-uri-encode@1.1.0:
     resolution: {integrity: sha512-R3f198pcvnB+5IpnBlRkphuE9n46WyVl8I39W/ZUTZLz4nqSP/oLYUrcnJrw462Ds8he4YKMov2efsTIw1BDGQ==}
@@ -5904,7 +5912,7 @@ snapshots:
       '@types/set-cookie-parser': 2.4.10
       set-cookie-parser: 2.7.2
 
-  '@mswjs/interceptors@0.17.10':
+  '@mswjs/interceptors@0.17.10(patch_hash=db96724d0bb27040ef82494b3e1d47c74916aa0deb94414e832c69c78d7b7a04)':
     dependencies:
       '@open-draft/until': 1.0.3
       '@types/debug': 4.1.12
@@ -5912,7 +5920,7 @@ snapshots:
       debug: 4.3.3(supports-color@6.1.0)
       headers-polyfill: 3.2.5
       outvariant: 1.4.3
-      strict-event-emitter: 0.2.8
+      strict-event-emitter: 0.2.4
       web-encoding: 1.1.5
     transitivePeerDependencies:
       - supports-color
@@ -9308,10 +9316,10 @@ snapshots:
 
   ms@2.1.3: {}
 
-  msw@0.49.2(@types/node@24.10.1):
+  msw@0.49.3(@types/node@24.10.1):
     dependencies:
       '@mswjs/cookies': 0.2.2
-      '@mswjs/interceptors': 0.17.10
+      '@mswjs/interceptors': 0.17.10(patch_hash=db96724d0bb27040ef82494b3e1d47c74916aa0deb94414e832c69c78d7b7a04)
       '@open-draft/until': 1.0.3
       '@types/cookie': 0.4.1
       '@types/js-levenshtein': 1.1.3
@@ -9326,7 +9334,7 @@ snapshots:
       node-fetch: 2.7.0
       outvariant: 1.4.3
       path-to-regexp: 6.3.0
-      strict-event-emitter: 0.2.8
+      strict-event-emitter: 0.4.6
       type-fest: 2.19.0
       yargs: 17.7.2
     transitivePeerDependencies:
@@ -10567,9 +10575,11 @@ snapshots:
 
   stream-shift@1.0.3: {}
 
-  strict-event-emitter@0.2.8:
+  strict-event-emitter@0.2.4:
     dependencies:
       events: 3.3.0
+
+  strict-event-emitter@0.4.6: {}
 
   strict-uri-encode@1.1.0: {}
 

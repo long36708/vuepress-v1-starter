@@ -1,32 +1,33 @@
 /**
  * @Author: longmo
  * @Date: 2025-11-29 21:04:28
- * @LastEditTime: 2025-11-30 12:19:35
+ * @LastEditTime: 2025-11-30 16:21:58
  * @FilePath: docs/.vuepress/config.js
  * @Description:
  */
 const webpack = require('webpack')
+const {resolve} = require("node:path");
 module.exports = {
     title: 'Hello VuePress',
     description: 'Just playing around',
     cache: false,
-    
+
     // 主题配置
     themeConfig: {
         // 导航栏配置
         nav: [
-            { text: '首页', link: '/' },
-            { text: '指南', link: '/guide/' },
-            { text: 'GitHub', link: 'https://github.com' }
+            {text: '首页', link: '/'},
+            {text: '指南', link: '/guide/'},
+            {text: 'GitHub', link: 'https://github.com'}
         ],
-        
+
         // 侧边栏配置
         sidebar: [
             '/',
             '/guide/',
         ]
     },
-    
+
     // 插件配置
     plugins: [
         'demo-container-v2.7',
@@ -38,11 +39,14 @@ module.exports = {
     configureWebpack: (config, isServer) => {
         return {
             // resolve 配置应该放在顶层
-            // resolve: {
-            //     // fullySpecified: false,
-            //     extensions: ['.js', '.jsx', '.mjs', '.ts', '.tsx']
-            // },
-            plugins:[
+            resolve: {
+                // fullySpecified: false,
+                // extensions: ['.js', '.jsx', '.mjs', '.ts', '.tsx']
+                modules: [
+                    'node_modules',
+                ]
+            },
+            plugins: [
                 // new webpack.DefinePlugin({
                 //     'process.env': {
                 //         NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development'),
@@ -66,7 +70,10 @@ module.exports = {
                         use: {
                             loader: 'babel-loader',
                             options: {
-                                presets: ['@babel/preset-env']
+                                presets: ['@babel/preset-env'],
+                                plugins: [
+                                    [require.resolve('@babel/plugin-transform-class-static-block')],
+                                ]
                             }
                         }
                     }
@@ -84,9 +91,8 @@ module.exports = {
         //     .end()
         //     .type('javascript/auto');
 
-        console.log(config.resolve.mainFields)
+        // console.log(config.resolve.mainFields)
         config.resolve.mainFields.clear()
         config.resolve.mainFields.merge(['main', 'browser'])
-
     }
 }
