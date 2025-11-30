@@ -34,6 +34,34 @@ importers:
         specifier: 4.47.0
         version: 4.47.0
 
+  docs:
+    dependencies:
+      debug:
+        specifier: 4.3.3
+        version: 4.3.3(supports-color@6.1.0)
+      graphql:
+        specifier: 15.10.1
+        version: 15.10.1
+      vuepress-plugin-demo-container-v2.7:
+        specifier: ^2.8.0
+        version: 2.8.0
+    devDependencies:
+      headers-polyfill:
+        specifier: 3.2.5
+        version: 3.2.5
+      http-server:
+        specifier: ^14.1.1
+        version: 14.1.1(debug@4.3.3)
+      msw:
+        specifier: 2.12.3
+        version: 2.12.3(@types/node@24.10.1)
+      vuepress:
+        specifier: ^1.9.10
+        version: 1.9.10(@vue/compiler-sfc@3.5.25)(debug@4.3.3)(hogan.js@3.0.2)(lodash@4.17.21)
+      webpack:
+        specifier: 4.47.0
+        version: 4.47.0
+
 packages:
 
   '@babel/code-frame@7.27.1':

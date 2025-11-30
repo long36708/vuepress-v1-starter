@@ -1,0 +1,30 @@
+{
+	"name": "vuepress-v1-starter-docs",
+	"version": "1.0.0",
+	"main": "index.js",
+	"type": "commonjs",
+	"license": "MIT",
+	"scripts": {
+		"docs:dev": "vuepress dev docs --no-cache",
+		"docs:build": "vuepress build ",
+		"serve:local": "http-server .vuepress\\dist -p 8899"
+	},
+	"devDependencies": {
+		"headers-polyfill": "3.2.5",
+		"http-server": "^14.1.1",
+		"msw": "2.12.3",
+		"vuepress": "^1.9.10",
+		"webpack": "4.47.0"
+	},
+	"dependencies": {
+		"debug": "4.3.3",
+		"graphql": "15.10.1",
+		"vuepress-plugin-demo-container-v2.7": "^2.8.0"
+	},
+	"volta": {
+		"node": "18.20.8"
+	},
+	"msw": {
+		"workerDirectory": ".vuepress\\public"
+	}
+}
