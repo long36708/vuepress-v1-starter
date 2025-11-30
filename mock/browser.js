@@ -7,6 +7,9 @@ export const worker = setupWorker(...handlers)
 // 启动 mock 服务
 export const startMockWorker = () => {
   worker.start({
+    serviceWorker: {
+      url: '/longmo/mockServiceWorker.js',
+    },
     // onUnhandledRequest: 'warn',
     // 生产环境下的额外配置
     quiet: false, // 保持日志输出以便调试
