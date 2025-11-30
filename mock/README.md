@@ -1,6 +1,6 @@
 # MSW Mock 服务
 
-这个项目使用 MSW (Mock Service Worker) 1.x 来模拟 API 接口，主要用于开发阶段的接口测试。
+这个项目使用 MSW (Mock Service Worker) 2.x 来模拟 API 接口，主要用于开发阶段的接口测试。
 
 ## 文件结构
 
@@ -61,17 +61,14 @@ startMockServer()
 在 `handlers.js` 中添加新的接口处理器：
 
 ```javascript
-import { rest } from 'msw'
+import { http, HttpResponse } from 'msw'
 
-export const newHandler = rest.get('/api/new-endpoint', (req, res, ctx) => {
-  return res(
-    ctx.status(200),
-    ctx.json({
-      code: 200,
-      message: '成功',
-      data: 'your data'
-    })
-  )
+export const newHandler = http.get('/api/new-endpoint', ({ request }) => {
+  return HttpResponse.json({
+    code: 200,
+    message: '成功',
+    data: 'your data'
+  }, { status: 200 })
 })
 
 // 记得将新处理器添加到 handlers 数组中

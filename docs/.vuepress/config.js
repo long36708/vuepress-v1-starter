@@ -1,7 +1,7 @@
 /**
  * @Author: longmo
  * @Date: 2025-11-29 21:04:28
- * @LastEditTime: 2025-11-30 16:21:58
+ * @LastEditTime: 2025-11-30 16:47:53
  * @FilePath: docs/.vuepress/config.js
  * @Description:
  */
@@ -73,6 +73,37 @@ module.exports = {
                                 presets: ['@babel/preset-env'],
                                 plugins: [
                                     [require.resolve('@babel/plugin-transform-class-static-block')],
+                                    [require.resolve('@babel/plugin-transform-optional-chaining')],
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        test: /\.js$/,
+                        include: /node_modules/,
+                        type: 'javascript/auto',
+                        use: {
+                            loader: 'babel-loader',
+                            options: {
+                                presets: ['@babel/preset-env'],
+                                plugins: [
+                                    [require.resolve('@babel/plugin-transform-class-static-block')],
+                                    [require.resolve('@babel/plugin-transform-optional-chaining')],
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        test: /\.cjs$/,
+                        include: /node_modules/,
+                        type: 'javascript/auto',
+                        use: {
+                            loader: 'babel-loader',
+                            options: {
+                                presets: ['@babel/preset-env'],
+                                plugins: [
+                                    [require.resolve('@babel/plugin-transform-class-static-block')],
+                                    [require.resolve('@babel/plugin-transform-optional-chaining')],
                                 ]
                             }
                         }
@@ -92,7 +123,7 @@ module.exports = {
         //     .type('javascript/auto');
 
         // console.log(config.resolve.mainFields)
-        config.resolve.mainFields.clear()
-        config.resolve.mainFields.merge(['main', 'browser'])
+        // config.resolve.mainFields.clear()
+        // config.resolve.mainFields.merge(['main', 'browser'])
     }
 }
