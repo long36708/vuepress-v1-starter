@@ -7,7 +7,9 @@ export const worker = setupWorker(...handlers)
 // 启动 mock 服务
 export const startMockWorker = () => {
   worker.start({
-    onUnhandledRequest: 'warn'
+    onUnhandledRequest: 'warn',
+    // 生产环境下的额外配置
+    quiet: false, // 保持日志输出以便调试
   }).then(() => {
     console.log('🔶 MSW: Mock worker started successfully')
   }).catch(error => {

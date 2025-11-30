@@ -1,14 +1,14 @@
 /**
  * @Author: longmo
  * @Date: 2025-11-30 11:06:15
- * @LastEditTime: 2025-11-30 12:16:45
+ * @LastEditTime: 2025-11-30 12:49:38
  * @FilePath: docs/.vuepress/enhanceApp.js
  * @Description: 
  */
 
 // const {startMockWorker} =require('../../mock/browser')
 export default ({Vue,isServer}) => {
-    if (!isServer && process.env.NODE_ENV === 'development') {
+    if (!isServer) {
         import('../../mock/browser').then(({ startMockWorker }) => {
             startMockWorker()
         }).catch(error => {

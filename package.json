@@ -1,26 +1,29 @@
 {
-  "name": "vuepress-v1-starter",
-  "version": "1.0.0",
-  "main": "index.js",
-  "type": "commonjs",
-  "license": "MIT",
-  "scripts": {
-    "docs:dev": "vuepress dev docs --no-cache",
-    "docs:build": "vuepress build docs"
-  },
-  "devDependencies": {
-    "msw": "0.39.2",
-    "vuepress": "^1.9.10"
-  },
-  "dependencies": {
-    "vuepress-plugin-demo-container-v2.7": "^2.8.0",
-    "graphql": "15.10.1",
-    "debug": "4.3.3"
-  },
-  "volta": {
-    "node": "18.20.8"
-  },
-  "msw": {
-    "workerDirectory": "docs\\.vuepress\\public"
-  }
+	"name": "vuepress-v1-starter",
+	"version": "1.0.0",
+	"main": "index.js",
+	"type": "commonjs",
+	"license": "MIT",
+	"scripts": {
+		"docs:dev": "vuepress dev docs --no-cache",
+		"docs:build": "vuepress build docs",
+		"serve:local": "http-server docs\\.vuepress\\dist -p 8899"
+	},
+	"devDependencies": {
+		"http-server": "^14.1.1",
+		"msw": "0.39.2",
+		"vuepress": "^1.9.10",
+		"webpack": "4.47.0"
+	},
+	"dependencies": {
+		"debug": "4.3.3",
+		"graphql": "15.10.1",
+		"vuepress-plugin-demo-container-v2.7": "^2.8.0"
+	},
+	"volta": {
+		"node": "18.20.8"
+	},
+	"msw": {
+		"workerDirectory": "docs\\.vuepress\\public"
+	}
 }

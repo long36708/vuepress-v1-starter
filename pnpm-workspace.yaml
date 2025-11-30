@@ -1,0 +1,7 @@
+onlyBuiltDependencies:
+  - core-js
+  - esbuild
+  - highlight.js
+  - msw
+  - vuepress
+  - vuepress-plugin-demo-container-v2.7
