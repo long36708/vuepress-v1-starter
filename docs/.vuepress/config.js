@@ -1,10 +1,11 @@
 /**
  * @Author: longmo
  * @Date: 2025-11-29 21:04:28
- * @LastEditTime: 2025-11-29 22:47:24
+ * @LastEditTime: 2025-11-30 12:19:35
  * @FilePath: docs/.vuepress/config.js
  * @Description:
  */
+const webpack = require('webpack')
 module.exports = {
     title: 'Hello VuePress',
     description: 'Just playing around',
@@ -23,7 +24,6 @@ module.exports = {
         sidebar: [
             '/',
             '/guide/',
-            '/api-demo'
         ]
     },
     
@@ -32,7 +32,7 @@ module.exports = {
         'demo-container-v2.7',
     ],
     // 客户端配置
-    clientRootMixin: require.resolve('./client-enhance.js'),
+    // clientRootMixin: require.resolve('./client-enhance.js'),
 
     // 添加 Webpack 配置处理 ES 模块
     configureWebpack: (config, isServer) => {
@@ -42,6 +42,21 @@ module.exports = {
             //     // fullySpecified: false,
             //     extensions: ['.js', '.jsx', '.mjs', '.ts', '.tsx']
             // },
+            plugins:[
+                // new webpack.DefinePlugin({
+                //     'process.env': {
+                //         NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development'),
+                //         DEBUG: JSON.stringify(false)
+                //     },
+                //     // 如果需要全局 process 对象（不推荐，但可解决报错）
+                //     'process': JSON.stringify({
+                //         env: {
+                //             NODE_ENV: process.env.NODE_ENV || 'development',
+                //             DEBUG: false
+                //         }
+                //     })
+                // })
+            ],
             module: {
                 rules: [
                     {
@@ -60,13 +75,18 @@ module.exports = {
         }
     },
     // 使用 chainWebpack 替代 configureWebpack
-    // chainWebpack: (config) => {
-    //     config.module
-    //         .rule('mjs')
-    //         .test(/\.mjs$/)
-    //         .include
-    //         .add(/node_modules/)
-    //         .end()
-    //         .type('javascript/auto');
-    // }
+    chainWebpack: (config) => {
+        // config.module
+        //     .rule('mjs')
+        //     .test(/\.mjs$/)
+        //     .include
+        //     .add(/node_modules/)
+        //     .end()
+        //     .type('javascript/auto');
+
+        console.log(config.resolve.mainFields)
+        config.resolve.mainFields.clear()
+        config.resolve.mainFields.merge(['main', 'browser'])
+
+    }
 }
