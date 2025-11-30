@@ -7,7 +7,7 @@
 	"scripts": {
 		"docs:dev": "vuepress dev docs --no-cache",
 		"docs:build": "vuepress build docs",
-		"serve:local": "http-server docs\\.vuepress\\dist -p 8899"
+		"serve:local": "http-server docs\\.vuepress\\dist -p 8899 -o /longmo"
 	},
 	"devDependencies": {
 		"headers-polyfill": "3.2.5",

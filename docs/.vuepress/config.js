@@ -1,7 +1,7 @@
 /**
  * @Author: longmo
  * @Date: 2025-11-29 21:04:28
- * @LastEditTime: 2025-11-30 17:04:12
+ * @LastEditTime: 2025-11-30 22:19:27
  * @FilePath: docs/.vuepress/config.js
  * @Description:
  */
@@ -11,7 +11,8 @@ module.exports = {
     title: 'Hello VuePress',
     description: 'Just playing around',
     cache: false,
-
+    dest: 'docs/.vuepress/dist/longmo',
+    base: '/longmo/',
     // 主题配置
     themeConfig: {
         // 导航栏配置
