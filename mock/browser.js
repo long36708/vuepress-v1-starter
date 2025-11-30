@@ -10,6 +10,17 @@ export const startMockWorker = () => {
     onUnhandledRequest: 'warn',
     // 生产环境下的额外配置
     quiet: false, // 保持日志输出以便调试
+    // onUnhandledRequest(request, print) {
+    //   // Ignore any requests containing "cdn.com" in their URL.
+    //   if (!request.url.href.includes('graphql')) {
+    //     return;
+    //   }
+    //
+    //   console.debug(worker);
+    //
+    //   // Otherwise, print an unhandled request warning.
+    //   print.warning();
+    // },
   }).then(() => {
     console.log('🔶 MSW: Mock worker started successfully')
   }).catch(error => {

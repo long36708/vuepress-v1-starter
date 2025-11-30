@@ -10,8 +10,9 @@
 		"serve:local": "http-server docs\\.vuepress\\dist -p 8899"
 	},
 	"devDependencies": {
+		"headers-polyfill": "3.2.5",
 		"http-server": "^14.1.1",
-		"msw": "0.39.2",
+		"msw": "0.49.2",
 		"vuepress": "^1.9.10",
 		"webpack": "4.47.0"
 	},
