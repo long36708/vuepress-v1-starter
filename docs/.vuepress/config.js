@@ -1,7 +1,7 @@
 /**
  * @Author: longmo
  * @Date: 2025-11-29 21:04:28
- * @LastEditTime: 2025-11-30 16:47:53
+ * @LastEditTime: 2025-11-30 17:04:12
  * @FilePath: docs/.vuepress/config.js
  * @Description:
  */
@@ -18,7 +18,7 @@ module.exports = {
         nav: [
             {text: '首页', link: '/'},
             {text: '指南', link: '/guide/'},
-            {text: 'GitHub', link: 'https://github.com'}
+            {text: 'GitHub', link: 'https://github.com/long36708/vuepress-v1-starter'}
         ],
 
         // 侧边栏配置
@@ -39,32 +39,18 @@ module.exports = {
     configureWebpack: (config, isServer) => {
         return {
             // resolve 配置应该放在顶层
-            resolve: {
-                // fullySpecified: false,
-                // extensions: ['.js', '.jsx', '.mjs', '.ts', '.tsx']
-                modules: [
-                    'node_modules',
-                ]
-            },
-            plugins: [
-                // new webpack.DefinePlugin({
-                //     'process.env': {
-                //         NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development'),
-                //         DEBUG: JSON.stringify(false)
-                //     },
-                //     // 如果需要全局 process 对象（不推荐，但可解决报错）
-                //     'process': JSON.stringify({
-                //         env: {
-                //             NODE_ENV: process.env.NODE_ENV || 'development',
-                //             DEBUG: false
-                //         }
-                //     })
-                // })
-            ],
+            // resolve: {
+            //     // fullySpecified: false,
+            //     // extensions: ['.js', '.jsx', '.mjs', '.ts', '.tsx']
+            //     modules: [
+            //         'node_modules',
+            //     ]
+            // },
+            plugins: [],
             module: {
                 rules: [
                     {
-                        test: /\.mjs$/,
+                        test: /\.(mjs|js|cjs)$/,
                         include: /node_modules/,
                         type: 'javascript/auto',
                         use: {
@@ -78,36 +64,6 @@ module.exports = {
                             }
                         }
                     },
-                    {
-                        test: /\.js$/,
-                        include: /node_modules/,
-                        type: 'javascript/auto',
-                        use: {
-                            loader: 'babel-loader',
-                            options: {
-                                presets: ['@babel/preset-env'],
-                                plugins: [
-                                    [require.resolve('@babel/plugin-transform-class-static-block')],
-                                    [require.resolve('@babel/plugin-transform-optional-chaining')],
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        test: /\.cjs$/,
-                        include: /node_modules/,
-                        type: 'javascript/auto',
-                        use: {
-                            loader: 'babel-loader',
-                            options: {
-                                presets: ['@babel/preset-env'],
-                                plugins: [
-                                    [require.resolve('@babel/plugin-transform-class-static-block')],
-                                    [require.resolve('@babel/plugin-transform-optional-chaining')],
-                                ]
-                            }
-                        }
-                    }
                 ]
             }
         }
